@@ -3,7 +3,7 @@ import React from 'react';
 
 const PageNotFound = () => {
   return (
-    <div>
+    <div style={{textAlign: "center"}}>
       <Typography variant="h4">Page Not Found</Typography>
       <Typography variant="h1">404</Typography>
       <Typography>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum laboriosam doloribus consectetur aut, libero excepturi.</Typography>
