@@ -1,35 +1,35 @@
-import React, { useEffect, useState } from 'react';
+import React, { lazy, Suspense, useEffect, useState } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Home from "./components/pages/Home";
-import PageNotFound from "./components/pages/PageNotFound";
-import { HashLoader } from 'react-spinners';
 // import { ThemeProvider } from "@emotion/react";
 // import Theme from "./components/ui/Theme";
+import Loader from "./components/Loader";
+import PageNotFound from "./pages/PageNotFound";
+
+const Home = lazy(() => import("./pages/Home"));
 
 function App() {
-  const [isLoading, setLoading] = useState(false);
+  const [isLoading, setLoading] = useState(true);
   useEffect(() => {
-    setLoading(true);
-    setTimeout(() =>{
-      setLoading(false)
-    }, 2000)
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
   }, []);
   return (
     <>
       {isLoading ? (
-        <div style={{width: "100%", height: "100vh", display: "flex", justifyContent: "center", alignItems: "center"}}>
-          <HashLoader color={"#fff"} isLoading={isLoading} size={80} />
-        </div>
+        <Loader isLoading={isLoading} />
       ) : (
-      // <ThemeProvider theme={Theme}>
-        <Router>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="*" component={PageNotFound} />
-          </Switch>
-        </Router>
-      // </ThemeProvider>
+        <Suspense fallback={<Loader isLoading={isLoading} />}>
+          {/* <ThemeProvider theme={Theme}> */}
+          <Router>
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="*" component={PageNotFound} />
+            </Switch>
+          </Router>
+          {/* </ThemeProvider> */}
+        </Suspense>
       )}
     </>
   );

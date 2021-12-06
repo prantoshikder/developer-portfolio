@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
       padding: "0.4rem",
       backgroundColor: "rgb(51, 153, 255)",
       objectFit: "cover",
-    }
+    },
   },
   heroContent: {
     float: "left",
@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
       paddingBottom: "1rem",
     },
     "& span": {
-      color: "rgb(51, 153, 255)"
+      color: "rgb(51, 153, 255)",
     },
     "& p": {
       color: "#fff",
@@ -52,6 +52,10 @@ const useStyles = makeStyles((theme) => ({
     "& svg": {
       color: "rgb(51, 153, 255)",
       marginRight: "1rem",
+      transition: "all 0.3s linear",
+    },
+    "& svg:hover": {
+      transform: "translateY(-7px)",
     },
 
     "&::before": {
@@ -63,8 +67,8 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: "#fff",
       marginTop: "0.6rem",
       marginRight: "1.5rem",
-    }
+    },
   },
-}))
+}));
 
 export default useStyles;

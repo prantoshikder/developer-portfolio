@@ -1,7 +1,6 @@
 import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles((theme) => ({
-  container: {},
   headerBottomToolbar: {
     display: "flex",
     justifyContent: "space-between",
@@ -11,20 +10,24 @@ const useStyles = makeStyles((theme) => ({
     "& h4": {
       fontSize: "1.6rem",
       fontWeight: "700",
-      color: "#fff"
+      color: "#fff",
     },
     "& span": {
-      color: "rgb(51, 153, 255)"
+      color: "rgb(51, 153, 255)",
     },
     "&:hover": {
       backgroundColor: "transparent",
     },
   },
+  menuUnderline: {
+    height: 0,
+    backgroundColor: "transparent",
+  },
   menuTab: {},
   menuItem: {
     opacity: 1,
     minWidth: "1rem",
-    fontSize: "13px",
+    fontSize: "14px",
     color: "#fff !important",
     textTransform: "capitalize !important",
     transition: "all 0.3s ease",
@@ -35,9 +38,9 @@ const useStyles = makeStyles((theme) => ({
       color: "rgb(51, 153, 255) !important",
     },
     "&:last-child": {
-      paddingRight: "0rem"
+      paddingRight: "0rem",
     },
   },
-}))
+}));
 
 export default useStyles;
